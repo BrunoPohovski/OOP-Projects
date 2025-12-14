@@ -1,39 +1,39 @@
-# Existing rules
-bin/
-obj/
-/packages/
+# Build artifacts
+[Bb]in/
+[Oo]bj/
+[Dd]ebug/
+[Rr]elease/
+*.exe
+*.dll
+*.pdb
 
-*.DotSettings.user
+# Visual Studio
+.vs/
+*.user
+*.userosscache
+*.sln.docstates
+*.rsuser
 
-# IntelliJ / PyCharm / WebStorm
-riderModule.iml
-/_ReSharper.Caches/
+# Rider
 .idea/
+*.DotSettings.user
+riderModule.iml
 *.iml
+_ReSharper.Caches/
 
 # VS Code
 .vscode/
 
-# OS
-.DS_Store
-
-# New rules for Visual Studio
-# User-specific files
-*.rsuser
-*.suo
-*.vscode
-*.user
-*.userosscache
-*.sln.docstates
-
-# Build artifacts
-*.obj
-*.sdf
-*.opensdf
-*.tlog
+# Build logs
 *.log
+*.tlog
+*.tmp
+*.cache
 
-# Visual Studio project settings
-*.vcxproj.*
-*.pubxml
-*.publishproj
+# OS files
+.DS_Store
+Thumbs.db
+
+# NuGet (only if using packages.config)
+packages/
+*.nupkg
