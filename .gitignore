@@ -1,7 +1,18 @@
 bin/
 obj/
 /packages/
+
+
+*.DotSettings.user
+
+# IntelliJ / PyCharm / WebStorm
 riderModule.iml
 /_ReSharper.Caches/
 .idea/
-*.DotSettings.user
+*.iml
+
+# VS Code
+.vscode/
+
+# OS
+.DS_Store
