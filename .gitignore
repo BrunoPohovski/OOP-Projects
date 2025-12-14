@@ -1,7 +1,7 @@
+# Existing rules
 bin/
 obj/
 /packages/
-
 
 *.DotSettings.user
 
@@ -16,3 +16,24 @@ riderModule.iml
 
 # OS
 .DS_Store
+
+# New rules for Visual Studio
+# User-specific files
+*.rsuser
+*.suo
+*.vscode
+*.user
+*.userosscache
+*.sln.docstates
+
+# Build artifacts
+*.obj
+*.sdf
+*.opensdf
+*.tlog
+*.log
+
+# Visual Studio project settings
+*.vcxproj.*
+*.pubxml
+*.publishproj
