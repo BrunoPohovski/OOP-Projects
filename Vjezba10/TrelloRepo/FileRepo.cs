@@ -37,7 +37,6 @@ namespace TrelloRepo
             ISet<Item> items = GetItems();
             items.Add(item);
             
-            
             File.WriteAllLines(ItemsPath, items.Select(u => u.FormatForFileLine()));
         }
 
@@ -46,26 +45,15 @@ namespace TrelloRepo
             ISet<User> users = GetUsers();
             users.Add(itemUser);
             
-            /*
-            string[] lines = new string[users.Count];
-            if (lines == null) throw new ArgumentNullException(nameof(lines));
-            int position = 0;
-
-            foreach (var user in users)
-            {
-                lines[position++] = user.FormatForFileLine();
-            }
-            */
-            
             File.WriteAllLines(UsersPath, users.Select(u => u.FormatForFileLine()));
         }
 
         public ISet<Item> GetItems()
         {
             ISet<Item> items = new HashSet<Item>();
-            var lines = File.ReadAllLines(ItemsPath);
-            
-            lines.ToList().ForEach(line => items.Add(Item.ParseFromFileLine(line)));
+            File.ReadAllLines(ItemsPath).
+                ToList().
+                ForEach(line => items.Add(Item.ParseFromFileLine(line)));
 
             return items;
         }
@@ -73,16 +61,16 @@ namespace TrelloRepo
         public ISet<User> GetUsers()
         {
             ISet<User> users = new HashSet<User>();
-            var lines = File.ReadAllLines(UsersPath);
-            
-            lines.ToList().ForEach(line => users.Add(User.ParseFromFileLine(line)));
+            File.ReadAllLines(UsersPath)
+                .ToList()
+                .ForEach(line => users.Add(User.ParseFromFileLine(line)));
 
             return users;
         }
 
         public User GetUser(int id)
         {
-            throw new System.NotImplementedException();
+            return GetUsers().FirstOrDefault(x => x.Id == id);
         }
     }
 }
