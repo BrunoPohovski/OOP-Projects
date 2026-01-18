@@ -26,7 +26,8 @@ namespace TrelloRepo
             return $"{Description} {Date.ToString(DateFormat)} {User}";
         }
         
-        public string FormatForFileLine() => $"{Id}{Delimiter}{Description}{Delimiter}{Date.ToString(DateFormat)}{Delimiter}{User.FormatForFileLine()}";
+        public string FormatForFileLine() 
+            => $"{Id}{Delimiter}{Description}{Delimiter}{Date.ToString(DateFormat)}{Delimiter}{User.FormatForFileLine()}";
 
         public static Item ParseFromFileLine(string line)
         {
@@ -50,7 +51,7 @@ namespace TrelloRepo
 
         public override int GetHashCode()
         {
-            // HashCode aligned with Equals: derived from Id only.
+            // HashCode aligned with Equals: derived from id only.
             return Id.GetHashCode();
         }
     }

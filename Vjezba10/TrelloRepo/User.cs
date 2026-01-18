@@ -16,7 +16,12 @@
         public static User ParseFromFileLine(string line)
         {
             var parts = line.Split(Delimiter);
-            return new User { Id = int.Parse(parts[0]), FirstName = parts[1], LastName = parts[2] };
+            return new User
+            {
+                Id = int.Parse(parts[0]), 
+                FirstName = parts[1], 
+                LastName = parts[2]
+            };
         }
 
         public override bool Equals(object obj)
@@ -25,7 +30,7 @@
             return obj is User other && Id == other.Id;
         }
         public override int GetHashCode()
-            // HashCode mirrors Equals by using only Id.
+            // HashCode mirrors Equals by using only id.
             => Id.GetHashCode();
 
     }

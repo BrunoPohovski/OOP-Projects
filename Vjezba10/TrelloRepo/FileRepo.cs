@@ -7,7 +7,6 @@ namespace TrelloRepo
 {
     internal class FileRepo : IRepo
     {
-
         private const string UsersPath = @"C:\Users\leona\Desktop\OOP Vjezbe\Vjezba10\data\users.txt";
         private const string ItemsPath = @"C:\Users\leona\Desktop\OOP Vjezbe\Vjezba10\data\items.txt";
 
@@ -15,19 +14,16 @@ namespace TrelloRepo
         {
             CreateFilesIfNonExistent();
         }
-
-        private void CreateFilesIfNonExistent()
+        private static void CreateFilesIfNonExistent()
         {
             if (!File.Exists(UsersPath))
             {
                 File.Create(UsersPath).Close();
             }
-
             if (!File.Exists(ItemsPath))
             {
                 File.Create(ItemsPath).Close();
             }
-            
         }
 
 
@@ -44,7 +40,6 @@ namespace TrelloRepo
         {
             ISet<User> users = GetUsers();
             users.Add(itemUser);
-            
             File.WriteAllLines(UsersPath, users.Select(u => u.FormatForFileLine()));
         }
 
